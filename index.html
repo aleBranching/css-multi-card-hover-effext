@@ -7,5 +7,33 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <div id="cards">
+      <div class="card">Test 1</div>
+      <div class="card">Test 2</div>
+      <div class="card">Test 3</div>
+      <div class="card">Test 4</div>
+      <div class="card">Test 5</div>
+      <div class="card">Test 6</div>
+    </div>
+  </body>
+  <script>
+    const handleMouseMove = (e) => {
+      console.log(e);
+
+      const relativeX = e.layerX;
+      const relativeY = e.layerY;
+
+      console.log(e.target.style);
+      const color = "red";
+
+      e.target.style.setProperty("--x-coord", `${relativeX}px`);
+      e.target.style.setProperty("--y-coord", `${relativeY}px`);
+      e.target.style.setProperty("--test", color);
+    };
+
+    document.querySelectorAll(".card").forEach((aCard) => {
+      aCard.addEventListener("mousemove", (e) => handleMouseMove(e));
+    });
+  </script>
 </html>

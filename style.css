@@ -1,0 +1,59 @@
+:root {
+  --bg-color: rgb(4, 4, 4);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+}
+
+#cards {
+  /* height: 0vh; */
+  width: calc(100%-20px);
+  gap: 8px;
+  /* width: 80vh; */
+  max-width: 916px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  height: 260px;
+  width: 280px;
+  /* background-color: pink; */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  /* opacity: 0; */
+}
+
+.card::before {
+  background: radial-gradient(
+    800px circle at var(--x-coord) var(--y-coord),
+    rgba(255, 255, 255, 0.1),
+    transparent 40%
+  );
+
+  /* background-color: var(--test); */
+  border-radius: inherit;
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
